@@ -23,9 +23,9 @@ public class AI : MonoBehaviour
     {
         //no update
         var pos = transform.position;
-
+        var posBall = theBall.transform.position;
         
-
+        //pos = posBall.X; não está reconhecendo X
     if (pos.x > boundX) {                  
         pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
     }
@@ -33,9 +33,9 @@ public class AI : MonoBehaviour
         pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite superior
     }
     
-    if(pos.y < boundY){
+    if(pos.y > boundY){
         pos.y = boundY;
-    }else if(pos.y > boundYJ){
+    }else if(pos.y < boundYJ){
         pos.y = boundYJ;
     }
     transform.position = pos;               // Atualiza a posição da raquete
