@@ -6,6 +6,7 @@ TagManager:
   tags:
   - jogador
   - Ball
+  - AI
   layers:
   - Default
   - TransparentFX
