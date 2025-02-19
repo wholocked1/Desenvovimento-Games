@@ -24,8 +24,7 @@ public class AI : MonoBehaviour
         //no update
         var pos = transform.position;
         var posBall = theBall.transform.position;
-        
-        //pos = posBall.X; não está reconhecendo X
+        pos.x = posBall.x;
     if (pos.x > boundX) {                  
         pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
     }

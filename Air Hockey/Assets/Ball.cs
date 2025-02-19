@@ -9,9 +9,9 @@ public class Ball : MonoBehaviour
     void GoBall(){                      
         float rand = Random.Range(0, 2);
         if(rand < 1){
-            rb2d.AddForce(new Vector2(40, -15));
+            rb2d.AddForce(new Vector2(20, -15));
         } else {
-            rb2d.AddForce(new Vector2(-40, -15));
+            rb2d.AddForce(new Vector2(-20, -15));
         }
     }
 
@@ -41,7 +41,6 @@ public class Ball : MonoBehaviour
         ResetBall();
         Invoke("GoBall", 1);
     }
-
 
     // Update is called once per frame
     void Update()
