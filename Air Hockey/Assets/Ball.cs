@@ -14,20 +14,32 @@ public class Ball : MonoBehaviour
             rb2d.AddForce(new Vector2(-20, -15));
         }
     }
+     public AudioSource source;
+    
+
+
+
 
     void Start () {
         rb2d = GetComponent<Rigidbody2D>(); // Inicializa o objeto bola
-        Invoke("GoBall", 2);    // Chama a função GoBall após 2 segundos
+        Invoke("GoBall", 2);    // Chama a função GoBall após 2 segundos`
+        source = GetComponent<AudioSource>();
     }
 
     // Determina o comportamento da bola nas colisões com os Players (raquetes) alterar para funcionar com o air hockey
     void OnCollisionEnter2D (Collision2D coll) {
         if(coll.collider.CompareTag("Player")){
             Vector2 vel;
-            vel.x = rb2d.velocity.x;
-            vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
+            vel.y = rb2d.velocity.y;
+            vel.x = (rb2d.velocity.x / 2) - (coll.collider.attachedRigidbody.velocity.x / 3);
+            rb2d.velocity = vel;
+        }if(coll.collider.CompareTag("AI")){
+            Vector2 vel;
+            vel.y = rb2d.velocity.y;
+            vel.x = (rb2d.velocity.x / 2) + (coll.collider.attachedRigidbody.velocity.x / 3);
             rb2d.velocity = vel;
         }
+        source.Play();
     }
 
     // Reinicializa a posição e velocidade da bola
