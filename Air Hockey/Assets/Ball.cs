@@ -38,6 +38,8 @@ public class Ball : MonoBehaviour
             vel.y = rb2d.velocity.y;
             vel.x = (rb2d.velocity.x / 2) + (coll.collider.attachedRigidbody.velocity.x / 3);
             rb2d.velocity = vel;
+        }if(coll.collider.CompareTag("Goal")){
+            RestartGame();
         }
         source.Play();
     }
