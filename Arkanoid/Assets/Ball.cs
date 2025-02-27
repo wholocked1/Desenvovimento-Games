@@ -8,20 +8,15 @@ public class Ball : MonoBehaviour
 
 // inicializa a bola randomicamente para esquerda ou direita
     void GoBall(){                      
-        float rand = Random.Range(0, 2);
-        if(rand < 1){
-            rb2d.AddForce(new Vector2(20, -15));
-        } else {
-            rb2d.AddForce(new Vector2(-20, -15));
-        }
+        rb2d.AddForce(new Vector2(20, -15));
     }
 
     // Determina o comportamento da bola nas colisões com os Players (raquetes)
     void OnCollisionEnter2D (Collision2D coll) {
         if(coll.collider.CompareTag("Player")){
             Vector2 vel;
-            vel.x = rb2d.velocity.x;
-            vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
+            vel.y = rb2d.velocity.y * 1.1f;
+            vel.x = (rb2d.velocity.x) + (coll.collider.attachedRigidbody.velocity.x / 4);
             rb2d.velocity = vel;
         }
     }
