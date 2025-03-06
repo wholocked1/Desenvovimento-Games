@@ -16,7 +16,7 @@ public class Nave : MonoBehaviour
  
     private float coolDownTime = 0.5f;
 
-    private Bullet bulletPrefab;
+    private Bullet bullet;
 
     private float shootTimer;
 
@@ -43,7 +43,7 @@ public class Nave : MonoBehaviour
     {
         shootTimer = 0f;
 
-        Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+        Instantiate(bullet, muzzle.position, Quaternion.identity);
         //GameManager.Instance.PlaySfx(shooting);
     }
 
