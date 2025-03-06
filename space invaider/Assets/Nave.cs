@@ -11,9 +11,7 @@ public class Nave : MonoBehaviour
     private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a nave
 
     private Transform muzzle;
-
-    //private AudioClip shooting;
- 
+     
     private float coolDownTime = 0.5f;
 
     private Bullet bullet;
@@ -38,6 +36,14 @@ public class Nave : MonoBehaviour
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
+    var pos = transform.position;           // Acessa a Posição da raquete
+    if (pos.x > boundX) {                  
+        pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
+    }
+    else if (pos.x < -boundX) {
+        pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
+    }
+    transform.position = pos;               // Atualiza a posição da raquete
     shootTimer += Time.deltaTime;
     if (shootTimer > coolDownTime && Input.GetKey(KeyCode.Space))
     {
@@ -47,6 +53,6 @@ public class Nave : MonoBehaviour
         //GameManager.Instance.PlaySfx(shooting);
     }
 
-    }
+     }
     
 }
