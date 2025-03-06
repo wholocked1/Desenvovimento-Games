@@ -2,28 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    private float lifeTime = 5f;
-    private float speed = 200f;
-    void DestroySelf()
+    public float speed,timer;
+    // Start is called before the first frame update
+    void Start()
     {
-        gameObject.SetActive(false);
-        Destroy(gameObject);
+        
     }
 
-    void Awake()
-    {
-        Invoke("DestroySelf", lifeTime);
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector2.up);
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        DestroySelf();
+        transform.position += transform.up * speed * timer.deltaTime;
     }
 }

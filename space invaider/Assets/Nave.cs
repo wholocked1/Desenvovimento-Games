@@ -12,7 +12,7 @@ public class Nave : MonoBehaviour
 
     private Transform muzzle;
 
-    private AudioClip shooting;
+    //private AudioClip shooting;
  
     private float coolDownTime = 0.5f;
 
@@ -30,33 +30,21 @@ public class Nave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    var vel = rb2d.velocity;                // Acessa a velocidade da raquete
-    if (Input.GetKey(moveDir)) {             // Velocidade da Raquete para ir para cima
-        vel.x = speed;
+    if (Input.GetKey(KeyCode.D)) 
+    {
+        transform.Translate(speed * Time.deltaTime, 0, 0);
     }
-    else if (Input.GetKey(moveEsq)) {      // Velocidade da Raquete para ir para cima
-        vel.x = -speed;                    
+    else if (Input.GetKey(KeyCode.A)) 
+    {
+        transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
-    else {
-        vel.x = 0;                          // Velociade para manter a raquete parada
-    }
-    rb2d.velocity = vel;                    // Atualizada a velocidade da raquete
-
-    var pos = transform.position;           // Acessa a Posição da raquete
-    if (pos.x > boundX) {                  
-        pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
-    }
-    else if (pos.x < -boundX) {
-        pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
-    }
-    transform.position = pos;               // Atualiza a posição da raquete
     shootTimer += Time.deltaTime;
     if (shootTimer > coolDownTime && Input.GetKey(KeyCode.Space))
     {
         shootTimer = 0f;
 
         Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-        GameManager.Instance.PlaySfx(shooting);
+        //GameManager.Instance.PlaySfx(shooting);
     }
 
     }
