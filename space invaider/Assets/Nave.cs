@@ -9,13 +9,9 @@ public class Nave : MonoBehaviour
     public float speed = 20.0f;             // Define a velocidade da nave
     public float boundX = 10f;            // Define os limites em Y
     private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a nave
-
     private Transform muzzle;
-     
     private float coolDownTime = 0.5f;
-
     private Bullet bullet;
-
     private float shootTimer;
 
 
