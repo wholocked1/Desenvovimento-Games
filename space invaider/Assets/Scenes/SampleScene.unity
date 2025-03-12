@@ -249,6 +249,8 @@ MonoBehaviour:
   Rows: 5
   Columns: 11
   speed: 0.005
+  missilePrefab: {fileID: 6867375059509779118, guid: e638b29156c0d7748891c07d46cb665d, type: 3}
+  missileAttackRate: 1
 --- !u!4 &569296495
 Transform:
   m_ObjectHideFlags: 0
