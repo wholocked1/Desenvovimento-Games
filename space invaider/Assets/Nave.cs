@@ -32,6 +32,9 @@ public class Nave : MonoBehaviour
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
+    if (Input.GetKeyDown(KeyCode.Space)){
+        Shoot();
+    }
     var pos = transform.position;           // Acessa a Posição da raquete
     if (pos.x > boundX) {                  
         pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
@@ -48,6 +51,9 @@ public class Nave : MonoBehaviour
         Instantiate(bullet, muzzle.position, Quaternion.identity);
         //GameManager.Instance.PlaySfx(shooting);
     }
+
+     }
+     private void Shoot(){
 
      }
     

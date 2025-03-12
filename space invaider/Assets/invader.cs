@@ -23,7 +23,7 @@ public class invader : MonoBehaviour
         if (_animationFrame >= this.animationSrpites.Length){
             _animationFrame = 0;
         }
-        _spriteRenderer = this.animationSrpites[_animationFrame];
+        _spriteRenderer.sprite = this.animationSrpites[_animationFrame];
     }
     // private Rigidbody2D rb2d;
     // private float timer = 0.0f;
