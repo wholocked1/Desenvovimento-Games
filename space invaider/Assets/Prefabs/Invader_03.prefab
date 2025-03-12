@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Invader_03
       objectReference: {fileID: 0}
+    - target: {fileID: 7250381437262446367, guid: 0ea5abe73779de84da11845cbb101c17, type: 3}
+      propertyPath: m_Size.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250381437262446367, guid: 0ea5abe73779de84da11845cbb101c17, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250381437262446367, guid: 0ea5abe73779de84da11845cbb101c17, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9200027891168237965, guid: 0ea5abe73779de84da11845cbb101c17, type: 3}
       propertyPath: m_Size.x
       value: 1.02
