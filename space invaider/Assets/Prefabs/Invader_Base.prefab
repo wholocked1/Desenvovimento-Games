@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2340070723655916953}
   - component: {fileID: 9200027891168237965}
   - component: {fileID: 7250381437262446367}
-  - component: {fileID: 1246374157360830488}
+  - component: {fileID: 5525189326686314283}
   m_Layer: 0
   m_Name: Invader_Base
   m_TagString: Untagged
@@ -134,25 +134,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
---- !u!95 &1246374157360830488
-Animator:
-  serializedVersion: 7
+--- !u!114 &5525189326686314283
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210633005615263791}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f2167695169a940aa30328774e1f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
