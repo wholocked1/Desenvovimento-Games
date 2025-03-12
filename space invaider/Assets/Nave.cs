@@ -4,57 +4,33 @@ using UnityEngine;
 
 public class Nave : MonoBehaviour
 {
-    public KeyCode moveDir = KeyCode.D;      // Move a nave para direita
-    public KeyCode moveEsq = KeyCode.A;    // Move a nave para esquerda
-    public float speed = 20.0f;             // Define a velocidade da nave
-    public float boundX = 10f;            // Define os limites em Y
-    private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a nave
-    private Transform muzzle;
-    private float coolDownTime = 0.5f;
-    private Bullet bullet;
-    private float shootTimer;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public Bullet laserPrefab;
+    private Bullet laser;
+    public float speed = 0.1f;
+    private bool _laserActive;
+    private void Update()
     {
-        rb2d = GetComponent<Rigidbody2D>();     // Inicializa a nave
+        Vector3 position = transform.position;
+
+        if(Input.GetKey(KeyCode.A)){
+            this.transform.position += Vector3.left * this.speed;
+        } else if (Input.GetKey(KeyCode.D)){
+            this.transform.position += Vector3.right * this.speed;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Shoot();
+        }
+    }
+    private void Shoot(){
+        Bullet projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+        projectile.destroyed += LaserDestroyed;
+        _laserActive = true;
+        
+       
+    }
+    private void LaserDestroyed(){
+        _laserActive = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    if (Input.GetKey(KeyCode.D)) 
-    {
-        transform.Translate(speed * Time.deltaTime, 0, 0);
-    }
-    else if (Input.GetKey(KeyCode.A)) 
-    {
-        transform.Translate(-speed * Time.deltaTime, 0, 0);
-    }
-    if (Input.GetKeyDown(KeyCode.Space)){
-        Shoot();
-    }
-    var pos = transform.position;           // Acessa a Posição da raquete
-    if (pos.x > boundX) {                  
-        pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
-    }
-    else if (pos.x < -boundX) {
-        pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
-    }
-    transform.position = pos;               // Atualiza a posição da raquete
-    shootTimer += Time.deltaTime;
-    if (shootTimer > coolDownTime && Input.GetKey(KeyCode.Space))
-    {
-        shootTimer = 0f;
-
-        Instantiate(bullet, muzzle.position, Quaternion.identity);
-        //GameManager.Instance.PlaySfx(shooting);
-    }
-
-     }
-     private void Shoot(){
-
-     }
-    
 }

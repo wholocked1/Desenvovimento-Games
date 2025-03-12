@@ -44,7 +44,7 @@ public class Invaders : MonoBehaviour
     private void AdvenceRow(){
         _direction.x *= -1.0f;
         Vector3 position = this.transform.position;
-        position.y -= 0.1f;
+        position.y -= 0.2f;
         this.transform.position = position;
     }
 }
