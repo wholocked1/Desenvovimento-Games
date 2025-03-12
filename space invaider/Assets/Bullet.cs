@@ -11,8 +11,8 @@ public class Bullet : MonoBehaviour
     private void Update(){
         this.transform.position += this.direction * this.speed;
     }
-
-    private void OnTriggerEnter2d(Collider2D other){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         this.destroyed.Invoke();
         Destroy(this.gameObject);
     }

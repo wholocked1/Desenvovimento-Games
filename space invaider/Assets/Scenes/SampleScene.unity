@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 1275722092}
   - component: {fileID: 1275722095}
   - component: {fileID: 1275722096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nave
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1366030215
 Transform:
@@ -617,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 1366030213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 20, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -684,7 +684,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1421800631
 Transform:
@@ -695,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 1421800629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
   m_LocalScale: {x: 20, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
