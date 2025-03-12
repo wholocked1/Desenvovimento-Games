@@ -23,11 +23,12 @@ public class Nave : MonoBehaviour
         }
     }
     private void Shoot(){
+        if(!_laserActive){
         Bullet projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
         projectile.destroyed += LaserDestroyed;
         _laserActive = true;
-        
-       
+              
+        } 
     }
     private void LaserDestroyed(){
         _laserActive = false;
