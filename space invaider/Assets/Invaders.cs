@@ -7,8 +7,13 @@ public class Invaders : MonoBehaviour
     public invader[] prefabs;
     public int Rows = 5;
     public int Columns = 11;
-
+    public int amountKilled { get; private set; }
+    public int totalInvaders => this.Rows * this.Columns;
+    public int amountAlive => this.totalInvaders - this.amountKilled;
+    public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
     public float speed = 1.0f;
+    public Bullet missilePrefab;
+    public float missileAttackRate = 1.0f;
     private Vector3 _direction = Vector2.right;
 
     private void Awake(){
@@ -20,11 +25,16 @@ public class Invaders : MonoBehaviour
 
             for(int col = 0; col < this.Columns; col++){
                invader invad = Instantiate(this.prefabs[row], this.transform);
+               invad.killed += InvaderKilled;
                Vector3 position = rowPosition;
                position.x += col * 2.0f;
                invad.transform.position = position;
             }
         }
+    }
+    private void Start()
+    {
+        InvokeRepeating(nameof(MissileAttack), this.missileAttackRate, this.missileAttackRate);   
     }
     private void Update(){
         this.transform.position += _direction * this.speed;
@@ -46,5 +56,21 @@ public class Invaders : MonoBehaviour
         Vector3 position = this.transform.position;
         position.y -= 0.2f;
         this.transform.position = position;
+    }
+
+    private void MissileAttack(){
+        foreach(Transform invader in this.transform){
+            if(!invader.gameObject.activeInHierarchy){
+                continue;
+            }
+            if(Random.value < (1.0f/(float)this.amountAlive)){
+                Instantiate(this.missilePrefab, invader.position, Quaternion.identity);
+                break;
+            }
+        }
+    }
+
+    private void InvaderKilled(){
+        this.amountKilled++;
     }
 }
