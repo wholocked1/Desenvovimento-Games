@@ -10,7 +10,7 @@ public class invader : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private int _animationFrame;
-
+    public int score = 10;
     private void Awake(){
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
