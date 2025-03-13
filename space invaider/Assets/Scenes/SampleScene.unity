@@ -253,9 +253,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0.0024414062
-      value: 0.0026016235
-      inSlope: 0.004111763
-      outSlope: 0.004111763
+      value: 0.002039826
+      inSlope: 0.0046740044
+      outSlope: 0.0046740044
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1.0016522
       value: 0.006710142
-      inSlope: 0.004111763
-      outSlope: 0.004111763
+      inSlope: 0.0046740044
+      outSlope: 0.0046740044
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e811fdac9a3fe5448ad5aad0ecd6af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.03
-  cycleTime: 30
+  speed: 0.004
+  cycleTime: 3
   score: 300
 --- !u!1 &1275722090
 GameObject:

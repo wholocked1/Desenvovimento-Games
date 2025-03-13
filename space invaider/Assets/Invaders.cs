@@ -14,9 +14,12 @@ public class Invaders : MonoBehaviour
     public AnimationCurve speed;
     public Bullet missilePrefab;
     public float missileAttackRate = 1.0f;
-    private Vector3 _direction = Vector2.right;
+    private Vector3 _direction = Vector3.right;
+    private Vector3 initialPosition;
 
+    
     private void Awake(){
+        initialPosition = transform.position;
         for(int row = 0; row < this.Rows; row++){
             float width = 2.0f *(this.Columns - 1);
             float height = 2.0f * (this.Rows - 1);
@@ -72,5 +75,19 @@ public class Invaders : MonoBehaviour
 
     private void InvaderKilled(){
         this.amountKilled++;
+    }
+
+    public int GetAliveCount(){
+        return amountAlive;
+    }
+
+     public void ResetInvaders()
+    {
+        _direction = Vector3.right;
+        transform.position = initialPosition;
+
+        foreach (Transform invader in transform) {
+            invader.gameObject.SetActive(true);
+        }
     }
 }
