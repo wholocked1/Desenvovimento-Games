@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,25 +17,13 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private NaveMae mysteryShip;
 
-    public int score { get; private set; } = 0;
-    public int lives { get; private set; } = 3;
-
-    private void SetScore(int score)
-    {
-        this.score = score;
-        scoreText.text = score.ToString().PadLeft(4, '0');
-    }
-
-    private void SetLives(int lives)
-    {
-        this.lives = Mathf.Max(lives, 0);
-        livesText.text = this.lives.ToString();
-    }
+    public int score { get; set; } = 0;
+    public static int lives { get; set; } = 3;
 
     private void NewGame()
     {
-        SetScore(0);
-        SetLives(3);
+        Score = 0 ;
+        lives = 3;
         NewRound();
     }
 
@@ -47,22 +36,14 @@ public class GameManager : MonoBehaviour
     }
      public void OnPlayerKilled(Nave player)
     {
-        SetLives(lives - 1);
-
-        player.gameObject.SetActive(false);
-
-        if (lives > 0) {
-            Invoke(nameof(NewRound), 1f);
-        } else {
-            GameOver();
-        }
+        lives--;
     }
 
     public void OnInvaderKilled(invader invader)
     {
         invader.gameObject.SetActive(false);
 
-        SetScore(score + invader.score);
+        this.score = this.score + invader.score;
 
         if (invaders.GetAliveCount() == 0) {
             NewRound();
@@ -85,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void OnMysteryShipKilled(NaveMae mysteryShip)
     {
-        SetScore(score + mysteryShip.score);
+        this.score = this.score + mysteryShip.score;
     }
 
     // Start is called before the first frame update
@@ -101,11 +82,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnGUI();
+        Scene scene = SceneManager.GetActiveScene();
+        if(lives == 0){
+            SceneManager.LoadScene("Derrota");
+        }
+        if(invaders.GetAliveCount() == 0){
+            SceneManager.LoadScene("Vitoria");
+        }
     }
     void OnGUI(){
         GUI.skin = layout;
-        GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "Score: " + score);
-        GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "Lives: " + lives);
+        GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "Score: " + Score);
+        GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 50, 100, 100), "Lives: " + lives);
     }
 }

@@ -33,6 +33,7 @@ public class invader : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser")){
             this.killed.Invoke();
             this.gameObject.SetActive(false);
+            GameManager.Score += this.score;
         }
     }
 
