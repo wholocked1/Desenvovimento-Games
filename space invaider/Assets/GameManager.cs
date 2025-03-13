@@ -17,13 +17,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score();
-    }
-    public void Score(){
-        Bullet projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
-        if(projectile.destroyed){Score++;}
-        
-
     }
     void OnGUI(){
         GUI.skin = layout;
