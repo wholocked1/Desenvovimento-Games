@@ -248,7 +248,30 @@ MonoBehaviour:
   - {fileID: 5797543345177498293, guid: bfc853f926e9cbb4a8af50110e1e24c2, type: 3}
   Rows: 5
   Columns: 11
-  speed: 0.005
+  speed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0024414062
+      value: 0.0026016235
+      inSlope: 0.004111763
+      outSlope: 0.004111763
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0016522
+      value: 0.006710142
+      inSlope: 0.004111763
+      outSlope: 0.004111763
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   missilePrefab: {fileID: 6867375059509779118, guid: e638b29156c0d7748891c07d46cb665d, type: 3}
   missileAttackRate: 1
 --- !u!4 &569296495
@@ -277,8 +300,9 @@ GameObject:
   - component: {fileID: 613520721}
   - component: {fileID: 613520720}
   - component: {fileID: 613520719}
+  - component: {fileID: 613520722}
   m_Layer: 0
-  m_Name: SpaceInvaders_21
+  m_Name: NaveMae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,6 +423,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613520722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613520718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e811fdac9a3fe5448ad5aad0ecd6af7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.03
+  cycleTime: 30
+  score: 300
 --- !u!1 &1275722090
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 6867375059509779118, guid: 42b8652d250b0724889b9ca19765ea3e, type: 3}
-  speed: 0.1
+  speed: 0.01
 --- !u!1 &1366030213
 GameObject:
   m_ObjectHideFlags: 0
