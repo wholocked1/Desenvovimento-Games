@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e3663f9d494f9ca4291d7df7c62c944d
+guid: c408640c89a417141b610feb52ffc999
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7642986446173420197
-    second: Victory_0
+      213: 5952804460745924908
+    second: Farback02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victory_0
+      name: Farback02_0
       rect:
         serializedVersion: 2
-        x: 115
-        y: 491
-        width: 995
-        height: 216
+        x: 0
+        y: 0
+        width: 1024
+        height: 768
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5545bc4258aee590800000000000000
-      internalID: -7642986446173420197
+      spriteID: c212f142e1c9c9250800000000000000
+      internalID: 5952804460745924908
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Victory_0: -7642986446173420197
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
