@@ -7,6 +7,8 @@ TagManager:
   - Laser
   - Asteroid
   - Parede
+  - ParedeE
+  - ParedeD
   layers:
   - Default
   - TransparentFX

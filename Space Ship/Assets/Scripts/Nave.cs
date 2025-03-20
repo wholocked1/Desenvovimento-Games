@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Nave : MonoBehaviour
 {
     public Bullet laserPrefab;
     public float speed = 3f;
+
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +35,11 @@ public class Nave : MonoBehaviour
 
     private void Shoot(){
         Bullet projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.tag == "Asteroid"){
+            //SceneManager.LoadScene("Derrota");
+        }
     }
 }
