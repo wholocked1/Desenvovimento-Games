@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e9e8b5818bcf050418278553ae01032a
+guid: e53e40f11870ac6448d3b4f5f82540a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -914344077490345409
-    second: Ship03_0
+      213: 1186831109467073007
+    second: pngimg.com - asteroid_PNG17_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ship03_0
+      name: pngimg.com - asteroid_PNG17_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 29
+        x: 36
+        y: 69
+        width: 425
+        height: 371
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3aa4bae7e89f43f0800000000000000
-      internalID: -914344077490345409
+      spriteID: fe9ea202b98787010800000000000000
+      internalID: 1186831109467073007
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ship03_0: -914344077490345409
+      pngimg.com - asteroid_PNG17_0: 1186831109467073007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
