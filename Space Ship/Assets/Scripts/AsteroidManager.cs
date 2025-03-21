@@ -13,7 +13,7 @@ public class AsteroidManager : MonoBehaviour
 
     private void SpawnAsteroid(){
         var position = this.transform.position;
-        position.y = Random.Range(-4,4);
+        position.y = Random.Range(-3,3);
         Instantiate(this.asteroidPrefab, position, Quaternion.identity);
     }
 
