@@ -34,4 +34,12 @@ public class Nave : MonoBehaviour
         _laserActive = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Missile") ||
+            other.gameObject.layer == LayerMask.NameToLayer("Invader")) {
+            GameManager.lives--;
+        }
+    }
+
 }

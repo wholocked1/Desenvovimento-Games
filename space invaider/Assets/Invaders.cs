@@ -11,12 +11,15 @@ public class Invaders : MonoBehaviour
     public int totalInvaders => this.Rows * this.Columns;
     public int amountAlive => this.totalInvaders - this.amountKilled;
     public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
-    public float speed = 1.0f;
+    public AnimationCurve speed;
     public Bullet missilePrefab;
     public float missileAttackRate = 1.0f;
-    private Vector3 _direction = Vector2.right;
+    private Vector3 _direction = Vector3.right;
+    private Vector3 initialPosition;
 
+    
     private void Awake(){
+        initialPosition = transform.position;
         for(int row = 0; row < this.Rows; row++){
             float width = 2.0f *(this.Columns - 1);
             float height = 2.0f * (this.Rows - 1);
@@ -37,7 +40,7 @@ public class Invaders : MonoBehaviour
         InvokeRepeating(nameof(MissileAttack), this.missileAttackRate, this.missileAttackRate);   
     }
     private void Update(){
-        this.transform.position += _direction * this.speed;
+        this.transform.position += _direction * this.speed.Evaluate(this.percentKilled);
         Vector3 leftLedge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightLedge = Camera.main.ViewportToWorldPoint(Vector3.right);
         foreach(Transform invader in this.transform){
@@ -72,5 +75,19 @@ public class Invaders : MonoBehaviour
 
     private void InvaderKilled(){
         this.amountKilled++;
+    }
+
+    public int GetAliveCount(){
+        return amountAlive;
+    }
+
+     public void ResetInvaders()
+    {
+        _direction = Vector3.right;
+        transform.position = initialPosition;
+
+        foreach (Transform invader in transform) {
+            invader.gameObject.SetActive(true);
+        }
     }
 }

@@ -10,7 +10,7 @@ public class invader : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private int _animationFrame;
-
+    public int score = 10;
     private void Awake(){
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -33,6 +33,7 @@ public class invader : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser")){
             this.killed.Invoke();
             this.gameObject.SetActive(false);
+            GameManager.Score += this.score;
         }
     }
 
