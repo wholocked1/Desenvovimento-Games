@@ -12,7 +12,11 @@ public class Player : MonoBehaviour
     public KeyCode dir = KeyCode.D;
     public KeyCode esq = KeyCode.A;
     public float speed = 10.0f;
+    public float jumpForce = 7f;
+    private bool isGrounded = true;
     private Rigidbody2D rb2d;
+
+
     private void Awake(){
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -21,6 +25,17 @@ public class Player : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();     // Inicializa a raquete
         InvokeRepeating(nameof(AnimateSprite), this.animationTime, this.animationTime);
     }
+
+    void Update()
+    {
+        // Jumping
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            isGrounded = false;
+        }
+    }
+
     //para animar
     private void AnimateSprite(){
         var vel = rb2d.velocity; 
@@ -38,8 +53,14 @@ public class Player : MonoBehaviour
         }
         _spriteRenderer.sprite = this.animationSprites1[_animationFrame];
         vel.x =-speed;
-        }else{
+        } else{
             vel.x = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)  
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            isGrounded = false;
         }
         rb2d.velocity = vel;
 
@@ -47,5 +68,14 @@ public class Player : MonoBehaviour
     //armamento
     private void OnTriggerEnter2D(Collider2D collision){
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if player is touching the ground
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
