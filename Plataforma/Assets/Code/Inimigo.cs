@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinAnimation : MonoBehaviour
+public class Inimigo : MonoBehaviour
 {
     public Sprite[] animationSprites;
     public float animationTime;
@@ -31,11 +31,11 @@ public class CoinAnimation : MonoBehaviour
     {
         
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.CompareTag("Player")){
             Destroy(gameObject);
-            GameManager.Score += 5;
+            GameManager.Score += 15;
         }
     }
 }

@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Inicio.unity
     guid: db8542efdc059af429846a0fb2cabc05
   - enabled: 1
@@ -20,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vitoria.unity
     guid: ee044ed3e361f714c850ed36b8accd09
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 513641fec45a2834c842e38b2b92c24f
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 8153a0a06bd7729419be03b26952258f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -9,7 +9,8 @@ public class Inicial : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
 
         if (GUI.Button(new Rect(Screen.width /2 - 60, 350, 120, 53), "PLAY")){
-            SceneManager.LoadScene("Level1");
+            Player.currentSceneName = "Level 1";
+            SceneManager.LoadScene("Level 1");
         }
         if(GUI.Button(new Rect(Screen.width /2 - 60, 450, 120, 53), "TUTORIAL")){
             SceneManager.LoadScene("Tutorial");

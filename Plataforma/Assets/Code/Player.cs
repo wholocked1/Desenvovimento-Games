@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 7f;
     private bool isGrounded = true;
     private Rigidbody2D rb2d;
+    public static string currentSceneName;
 
 
     private void Awake(){
@@ -67,7 +69,9 @@ public class Player : MonoBehaviour
     }
     //armamento
     private void OnTriggerEnter2D(Collider2D collision){
-        
+        if(collision.GetComponent<Collider>().CompareTag("Bau")){
+            GameManager.ProximaCena();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -76,6 +80,11 @@ public class Player : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        if(collision.collider.CompareTag("Bau")){
+            GameManager.ProximaCena();
+        }if(collision.collider.CompareTag("Finish")){
+            SceneManager.LoadScene("Derrota");
         }
     }
 }
