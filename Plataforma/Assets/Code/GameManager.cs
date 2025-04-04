@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static int Score = 0;
     public static int cena = 0;
 
-
+    public GUISkin layout;
+    private GameObject gameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -32,4 +33,10 @@ public class GameManager : MonoBehaviour
             cena = 0;
         }
     }
+
+    void OnGUI(){
+        GUI.skin = layout;
+        GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "Score: " + Score);
+    }
+
 }
